@@ -1,4 +1,6 @@
 # Gmsh
+In this text, we will describe what Gmsh is and how we are working with it. Note that it has Pytho API and it is way better to show how to work with it through example codes. We however want to present useful links and information, which is better to be written.
+
 
 Gmsh is an open source 3D finite element mesh generator.
 
@@ -10,7 +12,6 @@ It allows the user to generate meshes using a graphical user interface, command 
 
 It is on you to decide, how you want to use Gmsh. I however recomend it's Python API. To see the commands that it allows, please take a look at this [github](https://gitlab.onelab.info/gmsh/gmsh/blob/gmsh_4_15_2/api/gmsh.py).
 
-## Begginer tutorial
 
 ## Our way of using Gmsh
 
@@ -22,8 +23,8 @@ Our situation is as follows:
 ## What we need to know about Gmsh
 
 
-## Problem with Gmsh geometry/CAD kernels
-The problem lays in the presence of different parts of our working pipeline in different kernels. When you load STL (which is boundary representation, so no volumes are present) into Gmsh using **DOPLNIT**, you get elements that live inside the *Built-in kernel*. These can't be interacted with using the *OpenCASCADE kernel*. And so what we have to do is manually build the elements of geometry into OCC and just after that call our favorite function occ.fragment().
+### Problem with Gmsh geometry/CAD kernels
+The problem lays in the presence of different parts of our working pipeline in different kernels. When you import STL (which is boundary representation, so no volumes are present) into Gmsh using  the function *gmsh.merge("filename.stl")*, you get elements that live inside the *Built-in kernel*. These can't be interacted with using the *OpenCASCADE kernel*. And so what we have to do is manually build the elements of geometry into OCC and just after that call our favorite function occ.fragment().
 
 When you are using Gmsh, you basically have to decide, whether or not you want to use OpenCASCADE kernel or just a Built-in geometry kernel. There is no common geometrical representation. Operations like translation, rotation and even more advanced ones are always done through a respective CAD kernel.
 Said differently: once you create an element inside a Built-in kernel, you can't expect the OCC kernel operations to work on it. This will prove to be a problem for us.

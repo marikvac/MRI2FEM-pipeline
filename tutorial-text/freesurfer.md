@@ -1,11 +1,12 @@
 # Freesurfer
-In this chapter, we cover the first part of the process of turning MRI image into a computational mesh.
+In this text, we cover the first part of the process of turning MRI image into a computational mesh. We will focus on obtaining MRI data,  segmentation of the data and on turning them into a STL file.
 
-## We will do
-1. Obtain a MRI image
-1. Do a segmentation 
-1. Turn these segments into STL files
-1. Know how to use command line
+## Parts of this text cover
+1. Obtaining a MRI image
+1. Segmentation 
+1. Turning these segments into STL files
+
+Throughout the text we will be using command line. If you are not familiar with that, prepare yourself, so that you can go through our pipeline easily.
 
 ## We will need 
 1. OS: Ubuntu 20.04 or 22.04 (native or via WSL)
@@ -93,10 +94,13 @@ Note that *-subjid* sets the folder name, *-i* chooses the input file and your f
 After segmentation, the folder *sub001* will have approximately 380 MB.
 
 
-### Notes on the problematic parts, that book does no talk about
+### Notes on the problematic parts, that book does not talk about
 
 The following section heavily depends on whether your are using FEniCS or Firedrake for your FEM calculations. That is because there are differences in supported mesh file formats.
 
-This leads us to the biggest problem and that is SVMTk does not support generating meshes in a format that is useful for Firedrake. That is why we have to use GMSH to create our mesh.
+If you want to use FEniCS to solve your equations, you can now move on to SVMTK. Using this software is very well described in the book *Mardal et.al. - Mathematical Modeling of the Human Brain*. There you can find many example scripts, which focus on preparation of STL files and healing the mesh, which in the end leads to generating of a computational mesh. 
 
-This part is described mainly using the example files. They are all located in the *examples* folder. Not only are there example files focusing on one functionality needed. Additionally, the directory includes two complete, end-to-end examples to guide you through the entire workflow from raw data to final mesh.
+If you however want to use Firedrake as you FEM solver you can not do that.
+This leads us to the biggest problem and that is SVMTk can not generate meshes in a format that is supported in Firedrake. That is why we have to use GMSH to create our mesh.
+
+This part is described mainly using the example files, simply because it is more suitable to explain it using code. They are all located in the *examples* folder of this GitHub repository. Not only are there example files focusing on one functionality needed. Additionally, the directory includes two complete, end-to-end examples to guide you through the entire workflow from raw data to final mesh.
