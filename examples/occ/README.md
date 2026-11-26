@@ -1,0 +1,3 @@
+In this folder you will learn how the Open CASCADE kernel in Gmsh works. To be exact we focus on bolean functions that are present inside the occ kernel.
+
+First open the python file whose name corresponds to the boolean function you are interested in. The input files. You can specify the output files at the end of these scripts. The generated meshes are stored in the dedicated folder called *meshes*.

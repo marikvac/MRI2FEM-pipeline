@@ -1,0 +1,2 @@
+In this folder you can learn how Gmsh handles defining the PhysicalGroups, which can then be used to for example define boundary conditions in your FEM solver Firedrake.
+Output files of each script in this folder, i.e. the generated meshes are stored in the folder called *meshes*.

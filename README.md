@@ -1,30 +1,37 @@
-# mesh-creation
-Description of mesh creation workflow. This repository contains example scripts showing how to turn MRI images into computational mesh. 
+# MRI2FEM - pipeline
+An end-to-end workflow, tutorial series, and collection of example scripts for converting MRI scans into computational meshes.
+
+## Overview
 
 This repository consists of example scripts and also readable tutorials focusing mainly on description of steps, that are needed to do,
 in order to turn MRI images into computational mesh files.
 
 
 In order to do this, one needs to use the following:
-- FreeSurfer
-- SVMTK 
-- MeshLab
-- GMSH
+1. **FreeSurfer** – MRI processing and brain segmentation
+2. **SVMTK** – Surface extraction and processing of segmented brain structures
+3. **MeshLab** – STL surface cleaning, repair, and remeshing
+4. **Gmsh** – Volumetric computational mesh generation
 
 In this workflow, there are many problematic parts, which we try overcome.
 
 ***
-NOTE:
+> **NOTE**:
 If you have a STL file and want to turn it into a computational mesh, you can start with MeshLab step.
 
 
 ## How to use this repository
 
-A tutorial text presented in a directory ***tutorial-text*** is divided into files, which one can think of as chapters in a novel.
-The steps come one after another and can not be omitted.
-Together with this text, example scripts are presented. Each code example focuses on demonstrating a single feature or functionality of the library we need.
+### 1. Follow the Step-by-Step Tutorials
+The `tutorial-text/` directory contains sequential guides structured like chapters in a book. Each chapter builds directly on the output of the previous stage, so the steps should be followed in order without skipping ahead.
 
-Code examples contain a vast amount of comments, if you want to get rid of them to copy clean code, you can do that by means of a littl cleaning script offered in the repository.
+### 2. Run the Example Scripts
+Alongside the written tutorials, this repository provides standalone example scripts. Each script is intentionally focused on demonstrating a single feature or specific library operation needed in the pipeline.
+
+### 3. Strip Comments for Clean Code
+The example scripts are heavily commented for educational clarity. If you prefer clean, ready-to-copy code without inline explanations, use the included comment-stripping utility script in this repository.
+
+---
 
 
 ## Used software and useful links
@@ -32,3 +39,7 @@ Code examples contain a vast amount of comments, if you want to get rid of them 
 - For working with brain segments, we use [SVMTK](https://github.com/SVMTK/SVMTK)
 - For working with STL files, we use [MeshLab](https://www.meshlab.net/)
 - For creating the computational mesh itself, we use [GMSH](https://gmsh.info/), precisely the  [Python](https://www.python.org/) API
+
+## Acknowledgments
+
+This project was supported by the **Student Faculty Grant (SFG)** of the **Faculty of Mathematics and Physics, Charles University** (*Matematicko-fyzikální fakulta Univerzity Karlovy*). We gratefully acknowledge their financial and institutional support.
